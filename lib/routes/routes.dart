@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:untitled/services/auth_service.dart';
 
 import '../feature/authorization/bindings/auth_screen_bindings.dart';
 import '../feature/authorization/page/auth_screen_controller.dart';

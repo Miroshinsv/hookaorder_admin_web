@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:untitled/feature/authorization/model/auth_request.dart';
-import 'package:untitled/services/auth_service.dart';
+
+import '../../../services/auth_service.dart';
+import '../model/auth_request.dart';
+
 
 class AuthScreenController extends GetxController {
   final TextEditingController phoneController = TextEditingController();

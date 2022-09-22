@@ -156,4 +156,4 @@ doc/api/
 *.freezed.dart
 
 # Flutter WEB
-/web
+/web/

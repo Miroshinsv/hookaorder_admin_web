@@ -1,6 +1,6 @@
 import 'package:chopper/chopper.dart';
-import 'package:untitled/feature/authorization/model/auth_request.dart';
-import 'package:untitled/feature/authorization/model/auth_response.dart';
+
+import '../feature/authorization/model/auth_request.dart';
 
 part 'authorization_api_service.chopper.dart';
 

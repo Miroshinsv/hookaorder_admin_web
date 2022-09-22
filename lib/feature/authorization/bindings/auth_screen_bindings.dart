@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:untitled/services/auth_service.dart';
 
+import '../../../services/auth_service.dart';
 import '../controller/auth_screen_controller.dart';
 
 class AuthScreenBindings extends Bindings{
