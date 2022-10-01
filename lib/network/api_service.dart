@@ -1,8 +1,8 @@
 import 'package:chopper/chopper.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-import 'authorization_api_service.dart';
-import 'authorization_header_interceptor.dart';
+import 'authorization/authorization_api_service.dart';
+import 'interceptors/authorization_header_interceptor.dart';
 
 class ApiClient {
   static var customHeaders = {

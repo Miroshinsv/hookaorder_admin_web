@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:chopper/chopper.dart';
 import 'package:get/get.dart' as get_x;
 
-import '../services/auth_service.dart';
+import 'package:hookahorder_admin_web/services/auth_service.dart';
+
 
 class AuthorizationHeaderInterceptor implements RequestInterceptor {
   final AuthorizationService _authorizationService = get_x.Get.find();

@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
+import 'package:hookahorder_admin_web/feature/authorization_screen/controller/auth_screen_controller.dart';
+import 'package:hookahorder_admin_web/services/auth_service.dart';
 
-import '../../../services/auth_service.dart';
-import '../controller/auth_screen_controller.dart';
 
 class AuthScreenBindings extends Bindings{
   @override
@@ -9,5 +9,4 @@ class AuthScreenBindings extends Bindings{
     Get.put(AuthorizationService());
     Get.lazyPut(() => AuthScreenController());
   }
-
 }

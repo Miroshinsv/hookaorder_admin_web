@@ -1,11 +1,10 @@
 import 'package:chopper/chopper.dart' as chop;
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-
-import '../feature/authorization/model/auth_request.dart';
-import '../feature/authorization/model/auth_response.dart';
-import '../network/api_service.dart';
-import '../network/authorization_api_service.dart';
+import 'package:hookahorder_admin_web/feature/authorization_screen/model/auth_request.dart';
+import 'package:hookahorder_admin_web/feature/authorization_screen/model/auth_response.dart';
+import 'package:hookahorder_admin_web/network/api_service.dart';
+import 'package:hookahorder_admin_web/network/authorization/authorization_api_service.dart';
 
 class AuthorizationService extends GetxService {
   late chop.ChopperClient _apiClient;

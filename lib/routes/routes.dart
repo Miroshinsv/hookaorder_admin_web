@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
+import 'package:hookahorder_admin_web/feature/authorization_screen/bindings/auth_screen_bindings.dart';
+import 'package:hookahorder_admin_web/feature/authorization_screen/page/auth_screen_controller.dart';
+import 'package:hookahorder_admin_web/feature/main_screen/bindings/main_screen_bindings.dart';
+import 'package:hookahorder_admin_web/feature/main_screen/page/main_screen_page.dart';
 
-import '../feature/authorization/bindings/auth_screen_bindings.dart';
-import '../feature/authorization/page/auth_screen_controller.dart';
 
 class Routes {
   static const String MAIN_PAGE = "/";
@@ -10,10 +12,12 @@ class Routes {
     GetPage(
       name: AUTHORIZATION_PAGE,
       page: () => const AuthorizationScreenPage(),
-      bindings: [
-        AuthScreenBindings(),
-      ],
+      binding: AuthScreenBindings(),
     ),
+    GetPage(
+        name: MAIN_PAGE,
+        page: () => const MainScreePage(),
+        binding: MainScreenBindings()),
   ];
 
   get getPages => _routesPageList;

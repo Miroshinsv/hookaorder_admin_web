@@ -1,6 +1,6 @@
 import 'package:chopper/chopper.dart';
+import 'package:hookahorder_admin_web/feature/authorization_screen/model/auth_request.dart';
 
-import '../feature/authorization/model/auth_request.dart';
 
 part 'authorization_api_service.chopper.dart';
 

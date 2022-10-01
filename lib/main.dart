@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
+import 'package:hookahorder_admin_web/routes/routes.dart';
+import 'package:hookahorder_admin_web/theme/hookah_themes.dart';
 
-import '../services/auth_service.dart';
-import '../routes/routes.dart';
-import '../theme/hookah_themes.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
-  Get.put(AuthorizationService());
   runApp(const MyApp());
 }
 

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hookahorder_admin_web/feature/authorization_screen/controller/auth_screen_controller.dart';
 import 'package:masked_text/masked_text.dart';
-
-import '../controller/auth_screen_controller.dart';
 
 class AuthorizationScreenPage extends GetView<AuthScreenController> {
   const AuthorizationScreenPage({super.key});
