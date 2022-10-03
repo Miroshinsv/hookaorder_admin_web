@@ -50,7 +50,7 @@ class MainScreePage extends GetView<MainScreenController> {
               },
             ),
             ListTile(
-                title: const Text('Stuff'),
+                title: const Text('Admin: users'),
                 onTap: () {
                   controller.selectIndex(1);
                 }),

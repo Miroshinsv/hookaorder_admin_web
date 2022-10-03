@@ -11,10 +11,10 @@ abstract class StuffApiService extends ChopperService {
   Future<Response> createUser(@Body() UserModel userModel);
 
   @Get(path: "/get/all")
-  Future<Response<List<UserModel>>> getAllUsers();
+  Future<Response> getAllUsers();
 
   @Get(path: "/get/{id}")
-  Future<Response<UserModel?>> getUserById(@Path("id") int id);
+  Future<Response> getUserById(@Path("id") int id);
 
   static StuffApiService create([ChopperClient? client]) =>
       _$StuffApiService(client);

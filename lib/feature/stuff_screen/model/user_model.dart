@@ -4,19 +4,17 @@ part 'user_model.freezed.dart';
 part 'user_model.g.dart';
 
 @freezed
-
 class UserModel with _$UserModel {
 
-  @JsonSerializable(explicitToJson: true)
   const factory UserModel({
     required int id,
     String? name,
     String? email,
     required String phone,
     required bool enabled,
-    required DateTime createdAt,
-    required DateTime updatedAt,
-    required bool isEnabled,
+    @JsonKey(name: "created_at") required DateTime createdAt,
+    @JsonKey(name: "updated_at") required DateTime updatedAt,
+    @JsonKey(name: "is_enabled")  required bool isEnabled,
     double? rating,
   }) = _UserModel;
 

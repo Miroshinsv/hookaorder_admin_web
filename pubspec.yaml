@@ -28,6 +28,9 @@ dependencies:
   # ETC
   masked_text: ^1.1.2
 
+  # Geocoder
+  yandex_geocoder: ^2.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
