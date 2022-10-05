@@ -21,7 +21,7 @@ class PlaceScreen extends GetView<PlaceScreenController> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     ElevatedButton.icon(
-                      onPressed: null,
+                      onPressed: controller.clickCreatePlaceController,
                       icon: const Icon(Icons.add),
                       label: const Text("Добавить кальянную"),
                     ),
@@ -32,7 +32,7 @@ class PlaceScreen extends GetView<PlaceScreenController> {
                             ]
                           : controller.places
                               .map(
-                                (element) => placeWidget(element),
+                                (element) => placeWidget(element, controller),
                               )
                               .toList(),
                     )

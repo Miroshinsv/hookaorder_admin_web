@@ -1,5 +1,4 @@
 import 'package:chopper/chopper.dart';
-import 'package:hookahorder_admin_web/feature/authorization_screen/model/auth_request.dart';
 import 'package:hookahorder_admin_web/feature/stuff_screen/model/user_model.dart';
 
 

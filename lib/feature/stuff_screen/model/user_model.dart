@@ -1,3 +1,5 @@
+// ignore_for_file: recursive_getters
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user_model.freezed.dart';
