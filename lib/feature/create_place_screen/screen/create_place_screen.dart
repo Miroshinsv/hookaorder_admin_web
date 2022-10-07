@@ -16,8 +16,8 @@ class CreatePlaceScreen extends GetView<CreatePlaceScreenController> {
                     child: CircularProgressIndicator(),
                   )
                 : Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -29,12 +29,14 @@ class CreatePlaceScreen extends GetView<CreatePlaceScreenController> {
                         const SizedBox(height: 3),
                         const Text("Время открытия:"),
                         MaskedTextField(
+                          initialValue: "10:00",
                           mask: "##:##",
                           controller: controller.startTimeController,
                         ),
                         const SizedBox(height: 3),
                         const Text("Время закрытия:"),
                         MaskedTextField(
+                          initialValue: "10:00",
                           mask: "##:##",
                           controller: controller.endTimeController,
                         ),
@@ -69,6 +71,19 @@ class CreatePlaceScreen extends GetView<CreatePlaceScreenController> {
                         TextFormField(
                           controller: controller.apartmentAddressController,
                         ),
+                        Visibility(
+                          visible: controller.placeId != null,
+                          child: Column(
+                            children: [
+                              Divider(),
+                              ElevatedButton(
+                                onPressed: () {},
+                                child: Text("Добавить персонал"),
+                              ),
+                              Wrap(),
+                            ],
+                          ),
+                        ),
                         const SizedBox(height: 3),
                         SizedBox(
                           width: double.infinity,
@@ -82,7 +97,7 @@ class CreatePlaceScreen extends GetView<CreatePlaceScreenController> {
                         )
                       ],
                     ),
-                ),
+                  ),
           ),
         ),
         onWillPop: () async => true);

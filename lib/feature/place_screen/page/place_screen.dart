@@ -25,6 +25,7 @@ class PlaceScreen extends GetView<PlaceScreenController> {
                       icon: const Icon(Icons.add),
                       label: const Text("Добавить кальянную"),
                     ),
+                    const SizedBox(height: 3),
                     Wrap(
                       children: controller.places.isEmpty
                           ? [

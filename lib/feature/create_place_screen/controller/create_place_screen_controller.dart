@@ -17,6 +17,7 @@ class CreatePlaceScreenController extends GetxController {
   final TextEditingController logoUrlController = TextEditingController();
   final YandexGeocoder _geocoder =
       YandexGeocoder(apiKey: dotenv.env['GEOCODING_API_KEY']!);
+  late int? placeId;
 
   // Address controllers
   final TextEditingController countryAddressController =
@@ -34,8 +35,9 @@ class CreatePlaceScreenController extends GetxController {
   @override
   Future<void> onInit() async {
     super.onInit();
-    if (Get.arguments != null) {
-      final resp = await _placeService.getPlaceById(Get.arguments!);
+    placeId = Get.arguments;
+    if (placeId != null) {
+      final resp = await _placeService.getPlaceById(placeId!);
       if (resp.isSuccessful) {
         final body = resp.body!;
         placeNameController.text = body.name;
@@ -77,10 +79,10 @@ class CreatePlaceScreenController extends GetxController {
         lng: geocodeFromAddress.firstPoint!.longitude,
       ),
     );
-    final resp = Get.arguments == null
+    final resp = placeId == null
         ? await _placeService.createPlace(placeModel)
         : await _placeService.updatePlace(placeModel);
-    if(resp.isSuccessful){
+    if (resp.isSuccessful) {
       Get.find<PlaceScreenController>().onInit();
       Get.back();
     } else {

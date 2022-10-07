@@ -17,7 +17,7 @@ Widget placeWidget(PlaceModel model, PlaceScreenController controller) {
             Text("Логотип: ${model.logoUrl}"),
             Text(
                 "Адресс: г.${model.address.city}, ${model.address.street}, ${model.address.building},  ${model.address.apartment ?? ""}"),
-            Text("Координаты: ${model.address.lat}:${model.address.lng}"),
+            Text("Координаты: ${model.address.lat} : ${model.address.lng}"),
           ],
         ),
       ),
