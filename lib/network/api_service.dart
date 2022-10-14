@@ -1,6 +1,7 @@
 import 'package:chopper/chopper.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hookahorder_admin_web/network/place/place_api_services.dart';
+import 'package:hookahorder_admin_web/network/roles/role_api_services.dart';
 import 'package:hookahorder_admin_web/network/stuff/stuff_api_service.dart';
 
 import 'authorization/authorization_api_service.dart';
@@ -14,6 +15,7 @@ class ApiClient {
       AuthorizationHeaderInterceptor(),
     ],
     services: [
+      RoleApiServices.create(),
       AuthorizationApiService.create(),
       StuffApiService.create(),
       PlaceApiService.create(),

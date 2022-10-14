@@ -4,20 +4,25 @@ import 'package:get/get.dart';
 import 'package:hookahorder_admin_web/feature/place_screen/controller/place_screen_controller.dart';
 import 'package:hookahorder_admin_web/feature/place_screen/model/address_model.dart';
 import 'package:hookahorder_admin_web/feature/place_screen/model/place_model.dart';
+import 'package:hookahorder_admin_web/feature/role_screen/model/role_model.dart';
 import 'package:hookahorder_admin_web/services/place_service.dart';
+import 'package:hookahorder_admin_web/services/role_service.dart';
 import 'package:yandex_geocoder/yandex_geocoder.dart';
 
 class CreatePlaceScreenController extends GetxController {
   final RxBool isLoading = true.obs;
   final RxnString errorText = RxnString();
   final PlaceService _placeService = Get.find();
+  final RoleService _roleService = Get.find();
   final TextEditingController placeNameController = TextEditingController();
   final TextEditingController startTimeController = TextEditingController();
   final TextEditingController endTimeController = TextEditingController();
   final TextEditingController logoUrlController = TextEditingController();
+  Rxn<RoleModel> currentRole =  Rxn();
   final YandexGeocoder _geocoder =
       YandexGeocoder(apiKey: dotenv.env['GEOCODING_API_KEY']!);
   late int? placeId;
+  late Set<RoleModel> roles;
 
   // Address controllers
   final TextEditingController countryAddressController =
@@ -47,12 +52,17 @@ class CreatePlaceScreenController extends GetxController {
         countryAddressController.text = body.address.country ?? "";
         cityAddressController.text = body.address.city;
         streetAddressControllerController.text = body.address.street;
+        buildingAddressController.text = body.address.building ?? "";
         apartmentAddressController.text = body.address.apartment ?? "";
       } else {
         errorText.value = resp.error as String?;
         Future.delayed(const Duration(seconds: 10))
             .then((value) => errorText.value = null);
       }
+    }
+    var resp = await _roleService.getAllRoles();
+    if (resp.isSuccessful) {
+      roles = resp.body!;
     }
     isLoading.value = false;
   }
@@ -66,6 +76,7 @@ class CreatePlaceScreenController extends GetxController {
       lang: Lang.ru,
     ));
     final placeModel = PlaceModel(
+      id: placeId,
       name: placeNameController.text,
       endTime: endTimeController.text,
       startTime: startTimeController.text,

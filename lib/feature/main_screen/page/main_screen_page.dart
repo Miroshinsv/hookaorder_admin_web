@@ -11,7 +11,6 @@ class MainScreePage extends GetView<MainScreenController> {
 
   static const List<Widget> _tabs = [
     DashboardScreen(),
-    StuffScreen(),
     PlaceScreen(),
     OrderScreen(),
   ];
@@ -50,19 +49,14 @@ class MainScreePage extends GetView<MainScreenController> {
               },
             ),
             ListTile(
-                title: const Text('Admin: users'),
+                title: const Text('Places'),
                 onTap: () {
                   controller.selectIndex(1);
                 }),
             ListTile(
-                title: const Text('Places'),
-                onTap: () {
-                  controller.selectIndex(2);
-                }),
-            ListTile(
                 title: const Text('Orders'),
                 onTap: () {
-                  controller.selectIndex(3);
+                  controller.selectIndex(2);
                 }),
           ],
         ),

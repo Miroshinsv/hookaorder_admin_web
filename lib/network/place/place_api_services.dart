@@ -14,8 +14,8 @@ abstract class PlaceApiService extends ChopperService {
   @Post(path: "/create")
   Future<Response> createPlaces(@Body() PlaceModel place);
 
-  @Post(path: "/update")
-  Future<Response> updatePlace(@Body() PlaceModel place);
+  @Post(path: "/update/{placeId}")
+  Future<Response> updatePlace(@Body() PlaceModel place, @Path("placeId") int placeId);
 
   static PlaceApiService create([ChopperClient? client]) =>
       _$PlaceApiService(client);

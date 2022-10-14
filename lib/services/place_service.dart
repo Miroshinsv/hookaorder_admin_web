@@ -33,7 +33,7 @@ class PlaceService extends GetxService {
   }
 
   Future<chop.Response<PlaceModel>> updatePlace(PlaceModel model) async {
-    var resp = await _apiClient.updatePlace(model);
+    var resp = await _apiClient.updatePlace(model, model.id!);
     return resp.copyWith(body: PlaceModel.fromJson(resp.body));
   }
 }
