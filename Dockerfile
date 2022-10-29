@@ -27,6 +27,8 @@ RUN flutter pub get
 RUN flutter pub run build_runner build --delete-conflicting-outputs
 RUN flutter build web
 
-FROM nginx
+RUN tar -cvf build.tar build/web
 
-COPY --from=builder /app/build/web/* /usr/share/nginx/html
+FROM nginx
+COPY --from=builder /app/build.tar /usr/share/nginx/html/
+RUN tar -xvf /usr/share/nginx/html/build.tar -C /usr/share/nginx/html/ --strip-components=2
