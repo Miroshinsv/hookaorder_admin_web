@@ -157,3 +157,9 @@ doc/api/
 
 # Flutter WEB
 /web/
+android
+ios
+linux
+macos
+windows
+test
