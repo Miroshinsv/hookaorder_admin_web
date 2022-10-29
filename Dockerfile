@@ -10,25 +10,23 @@ RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
 # Set flutter environment path
 ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
-# Run flutter doctor
-RUN flutter doctor
-
 # Enable flutter web
 RUN flutter channel master
 RUN flutter upgrade
-RUN flutter config --enable-web
 
 # Copy files to container and build
 RUN mkdir /app/
 COPY . /app/
 WORKDIR /app/
 
-RUN flutter create .
-RUN flutter pub run build_runner build
+# Build flutter web project
+RUN rm -Rf .packages
+RUN flutter clean
+RUN dart pub get
+RUN flutter pub get
+RUN flutter pub run build_runner build --delete-conflicting-outputs
 RUN flutter build web
-
 
 FROM nginx
 
 COPY --from=builder /app/build/web/* /usr/share/nginx/html
-
